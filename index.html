@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Ultimate Tic Tac Toe</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div class="background-orb orb-one"></div>
+    <div class="background-orb orb-two"></div>
+    <div class="background-orb orb-three"></div>
+
+
+    <main class="game-shell">
+
+        <!-- HEADER -->
+        <header class="topbar">
+
+            <div>
+                <p class="eyebrow">9 BOARD BATTLE</p>
+
+                <h1>
+                    Ultimate <span>Tic Tac Toe</span>
+                </h1>
+
+                <p class="tagline">
+                    Own three boards in a row to win the match.
+                </p>
+            </div>
+
+
+            <!-- CURRENT TURN -->
+            <div class="turn-card" id="turnCard">
+
+                <div class="turn-label">
+                    CURRENT TURN
+                </div>
+
+                <div class="turn-player" id="turnPlayer">
+                    X
+                </div>
+
+                <div class="availability" id="availability">
+                    ALL BOARDS OPEN
+                </div>
+
+            </div>
+
+        </header>
+
+
+        <!-- SCORE -->
+        <section class="score-row">
+
+            <div class="score-card score-x">
+
+                <div class="score-icon">
+                    X
+                </div>
+
+                <div>
+                    <span class="score-name">
+                        PLAYER X
+                    </span>
+
+                    <strong id="xScore">
+                        0
+                    </strong>
+                </div>
+
+            </div>
+
+
+            <div class="match-info">
+
+                <span class="pulse-dot"></span>
+
+                <span id="matchStatus">
+                    MATCH IN PROGRESS
+                </span>
+
+            </div>
+
+
+            <div class="score-card score-o">
+
+                <div class="score-icon">
+                    O
+                </div>
+
+                <div>
+                    <span class="score-name">
+                        PLAYER O
+                    </span>
+
+                    <strong id="oScore">
+                        0
+                    </strong>
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- GAME AREA -->
+        <section class="game-panel">
+
+            <div class="board-heading">
+
+                <div>
+
+                    <span class="mini-label">
+                        PLAYABLE BOARDS
+                    </span>
+
+                    <h2 id="instruction">
+                        Choose any glowing board
+                    </h2>
+
+                </div>
+
+
+                <div class="rule-chip" id="ruleChip">
+                    RANDOM BOARD ACCESS
+                </div>
+
+            </div>
+
+
+            <!--
+                JavaScript creates all 9 boards here.
+            -->
+            <div
+                class="master-board"
+                id="masterBoard"
+            ></div>
+
+
+            <!-- LEGEND -->
+            <div class="legend">
+
+                <div>
+                    <span class="legend-dot open"></span>
+                    Open
+                </div>
+
+                <div>
+                    <span class="legend-dot locked"></span>
+                    Locked
+                </div>
+
+                <div>
+                    <span class="legend-dot owned-x"></span>
+                    X Owned
+                </div>
+
+                <div>
+                    <span class="legend-dot owned-o"></span>
+                    O Owned
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- STATUS MESSAGE -->
+        <section
+            class="message-card"
+            id="messageCard"
+        >
+
+            <div
+                class="message-icon"
+                id="messageIcon"
+            >
+                ✦
+            </div>
+
+            <div>
+
+                <strong id="statusTitle">
+                    X starts the battle
+                </strong>
+
+                <p id="statusText">
+                    Make your move on a glowing board.
+                </p>
+
+            </div>
+
+        </section>
+
+
+        <!-- NEW GAME -->
+        <button
+            class="new-game"
+            id="newGame"
+            type="button"
+        >
+            <span>↻</span>
+            New Match
+        </button>
+
+    </main>
+
+
+    <!-- WINNER POPUP -->
+    <div
+        class="winner-overlay"
+        id="winnerOverlay"
+        aria-hidden="true"
+    >
+
+        <div class="winner-card">
+
+            <div class="winner-sparkle">
+                ✦
+            </div>
+
+            <p class="winner-kicker">
+                MATCH COMPLETE
+            </p>
+
+            <h2 id="winnerTitle">
+                X WINS!
+            </h2>
+
+            <p id="winnerText">
+                Three boards conquered in a row.
+            </p>
+
+
+            <div class="final-score">
+
+                <div>
+                    <span>X</span>
+                    <strong id="finalXScore">
+                        0
+                    </strong>
+                </div>
+
+                <div>
+                    <span>O</span>
+                    <strong id="finalOScore">
+                        0
+                    </strong>
+                </div>
+
+            </div>
+
+
+            <button
+                class="restart-button"
+                id="restartButton"
+                type="button"
+            >
+                Restart Match
+            </button>
+
+        </div>
+
+    </div>
+
+
+    <script src="script.js"></script>
+
+</body>
+</html>
